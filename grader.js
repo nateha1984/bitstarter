@@ -22,6 +22,7 @@ References:
 */
 
 var fs = require('fs');
+var rest = require('restler');
 var program = require('commander');
 var cheerio = require('cheerio');
 var HTMLFILE_DEFAULT = "index.html";
@@ -55,8 +56,8 @@ var checkHtmlFile = function(htmlfile, checksfile) {
     return out;
 };
 
-var checkURL = function(url, checksfile) {
-    $ = cheerio.load(url);
+var checkURL = function(urlResults, checksfile) {
+    $ = cheerio.load(urlResults);
     var checks = loadChecks(checksfile).sort();
     var out = {};
     for(var ii in checks) {
@@ -76,15 +77,18 @@ if(require.main == module) {
     program
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
-        .option('-u, --url <url>', 'URL', URL_DEFAULT)
+        .option('-u, --url <url>', 'URL to check')
         .parse(process.argv);
-    if(program.url !== URL_DEFAULT) {
+    if(program.url !== undefined) {
 	rest.get(program.url).on('complete', function (result) {
 	    if (result instanceof Error) {
 		console.log("Error!!");
 		return 0;
 	    } else {
-		checkURL(program.url, program.checks);
+		console.log("Checking " + program.url);
+		var checkJsonUrl = checkURL(result, program.checks);
+		var outJsonUrl = JSON.stringify(checkJsonUrl, null, 4);
+		console.log(outJsonUrl);
 	    }
 	});
     } else {
