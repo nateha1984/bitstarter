@@ -12,6 +12,7 @@
     <style type="text/css">
 
       /*Large desktop*/
+
       @media (min-width: 980px) {
        body {
         padding-top: 60px;
@@ -25,6 +26,7 @@
       }
 
       /*Landscape phones and down */
+
       @media (max-width: 480px) {
        .copy {
         padding: 2.5% 10%;
@@ -40,6 +42,7 @@
       /*All form factors*/
       
       /*Main body and headings*/
+
       body {
        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
       }
@@ -78,7 +81,24 @@
 
       /*Marketing copy and footer*/
 
-      
+      .copy {
+       padding-top: 2.5%;
+       padding-bottom: 2.5%;
+       text-align: justify;
+      }
+      .asset {
+       padding: 2.5% 0%;
+      }
+      .footer {
+       color: #cccccc;
+       text-align: center;
+      }
+      .footer p {
+       font-size: 11px;
+      }
+      .footer a {
+       color: #ccccff;
+      }      
     </style>
   </head>
   <body>
@@ -151,7 +171,7 @@
 	      </div>
 	    </div>
 	  </div>
-        <div class="span10 offset">
+        <div class="span10 offset1">
 	  <!-- Bootstrap progress bar -->
 	  <!-- http://twitter.github.io/bootstrap/components.html#progress -->
 	  <div class="thermometer progress active">
@@ -159,24 +179,42 @@
 	    <div class="bar bar-warning" style="width: 40%;"></div>
 	  </div>
 	</div>
-	  <div class="order">
-	    Order
+	  <div class="span6 offset3 order">
+	    <!-- standard Bootstrap button -->
+	    <button class="btn btn-success btn-large">Preorder</button>
 	  </div>
-	  <div class="social">
-	    Social
+	  <div class="span8 offset2 social">
+	    <!-- social buttons must be imported -->
+	    <!-- see: http://noizwaves.github.io/bootstrap-social-buttons -->
+	    <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button>
+	    <button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook</button>
 	  </div>
 	</div>
       </div>
-      <div class="row section1">
-	<div class="span12">
-	  Marketing Section 1
+      
+      <!-- start marketing copy -->
+      <div class="row-fluid section1">
+	<div class="span5 offset1 asset">
+	  <img class="img-polaroid" src="http://placehold.it/480x300">
+	</div>
+	<div class="span5 copy">
+	  <p>
+	    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae nibh massa. Curabitur nec pretium quam. In magna sem, viverra non nunc pellentesque, elementum mattis purus. Duis felis leo, iaculis vitae venenatis sed, iaculis a nisl. Nam nulla est, elementum et risus id, dapibus euismod sem. Fusce urna odio, consectetur ut mi vitae, rhoncus posuere enim. Integer sapien est, scelerisque posuere urna quis, vestibulum tempus dui. Aliquam eu lobortis ligula, nec gravida sapien. Integer sollicitudin elit et adipiscing rutrum.
+	  </p>
 	</div>
       </div>
-      <div class="row section2">
-	<div class="span12">
-	  Marketing Section 2
+      <div class="row-fluid section2">
+	<div class="span5 offset1 copy copy-right">
+	  <p>
+	    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae nibh massa. Curabitur nec pretium quam. In magna sem, viverra non nunc pellentesque, elementum mattis purus. Duis felis leo, iaculis vitae venenatis sed, iaculis a nisl. Nam nulla est, elementum et risus id, dapibus euismod sem. Fusce urna odio, consectetur ut mi vitae, rhoncus posuere enim. Integer sapien est, scelerisque posuere urna quis, vestibulum tempus dui. Aliquam eu lobortis ligula, nec gravida sapien. Integer sollicitudin elit et adipiscing rutrum.
+	  </p>
 	</div>
+	<div class="span5 asset">
+          <img class="img-polaroid" src="http://placehold.it/480x300">
+        </div>
       </div>
+
+      <!-- FAQ section using jQuery and bootstrap.js -->
       <div class="row faq">
 	<div class="span12">
 	  FAQ
