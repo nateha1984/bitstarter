@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>My First Bitstarter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.bo-icons.min.css">
+    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet"  type="text/css">
@@ -13,13 +13,29 @@
 
       /*Large desktop*/
       @media (min-width: 980px) {
-      body {
-       padding-top: 60px;
-      }
-      .linediv-l {
-       border-right: 1px white solid;
+       body {
+        padding-top: 60px;
+       }
+       .linediv-l {
+        border-right: 1px white solid;
+       }
+       .linediv-r {
+        border-left: 1px white solid;
+       }
       }
 
+      /*Landscape phones and down */
+      @media (max-width: 480px) {
+       .copy {
+        padding: 2.5% 10%;
+       }
+       .linediv-l {
+        border-bottom: 1px white solid;
+       }
+       .linediv-r {
+        border-top: 1px white solid;
+       }
+      }
 
       /*All form factors*/
       
@@ -43,37 +59,26 @@
 
       /*Video pitch and Action*/
 
+      .pitch {
+       padding: 2.5% 0%;
+      }
+      .order {
+       padding: 2% 0%;
+      }
+      .actions {
+       background-color: #343434;
+       padding: 3% 0%;
+      }
+      .video, .thermometer, .order, .social, .statistics {
+       text-align: center;
+      }
+      .statistics h3, .statistics p {
+       color: white;
+      }
 
-      body {
-      padding-top: 20px;
-      padding-bottom: 40px;
-      }
-      .container {
-      width: 960px;
-      }
-      p.lead {
-      padding-top: 15px;
-      }
-      .navigation, .pitch, .section1, .section2, .faq, .footer {
-      padding: 10px 0px 10px 0px;
-      }
-      .video, .thermometer, .order, .social {
-      border: 1px dotted;
-      text-align: center;
-      }
-      .video {
-      /* Internal border have 1px width, thus need to add 4 x 1px to 120px */
-      height: 124px;
-      line-height: 40px;
-      }
-      .thermometer, .order, .social {
-      /* line-height to vertically center: http://phrogz.net/css/vertical-align/index.html */
-      height: 40px;
-      line-height: 40px;
-      }
-      div.row {
-      border: 1px solid;
-      }
+      /*Marketing copy and footer*/
+
+      
     </style>
   </head>
   <body>
@@ -101,36 +106,59 @@
       </div>
     </div>
 
+    <!-- Use row-fluid inside containers to achieve resizeable layout -->
     <div class="container">
-      <div class="row navigation">
-	<div class="span2 logo">
-	  Logo
-	</div>
-	<div class="span6 blank">
-	  Blank
-	</div>
-	<div class="span4 about">
-	  About
-	</div>
-      </div>
-      <div class="row heading">
+      <!-- font and paired font of .headign/.subheading and body from Google Fonts -->
+      <!-- google.com/fonts/specimen/Ubuntu -->
+      <div class="row-fluid subheading">
 	<div class="span12">
-	  <h1>Bitstarter Title</h1>
+	 <h1>Product</h1>
 	</div>
       </div>
-      <div class="row subheading">
+      <div class="row-fluid subheading">
 	<div class="span12">
-	  <p class="lead">This is my first bitstarter project</p>
+	  <!-- special typography from Bootstrap for lead paragraph -->
+	  <p class="lead">One sentence description.</p>
 	</div>
       </div>
-      <div class="row pitch">
-	<div class="span6 video">
-	  Video
+      <div class="row-fluid  pitch">
+	<div class="span5 offset1  video">
+	  <img class="img-polaroid" src="http://placehold.it/480x300">
 	</div>
-        <div class="span6">
-	  <div class="thermometer">
-	    Thermometer
+
+	<!-- define a new actions div to contain statistics, order, and share buttons -->
+	<div class="span5 actions">
+	  <div class="span8 offset2">
+	    <div class="statistics">
+	      <div class="span4">
+		<!-- linediv-l and linediv-r give dividing lines that look different in horiz and vert layouts, illustrating media queries -->
+		<div class="linediv-l">
+		  <h3>1000</h3>
+		  <p>backers</p>
+		</div>
+	      </div>
+	      <div class="span4">
+	        <div class="linediv-c">
+		  <h3>$6000</h3>
+		  <p>of $10,000</p>
+		</div>
+	      </div>
+	      <div class="span4">
+		<div class="linediv-r">
+		  <h3>10</h3>
+		  <p>days left<p>
+		</div>
+	      </div>
+	    </div>
 	  </div>
+        <div class="span10 offset">
+	  <!-- Bootstrap progress bar -->
+	  <!-- http://twitter.github.io/bootstrap/components.html#progress -->
+	  <div class="thermometer progress active">
+	    <div class="bar bar-success" style="width: 60%;"></div>
+	    <div class="bar bar-warning" style="width: 40%;"></div>
+	  </div>
+	</div>
 	  <div class="order">
 	    Order
 	  </div>
